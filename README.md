@@ -20,9 +20,9 @@ The 6T SRAM cell consists of two cross-coupled CMOS inverters ($M_1, M_2, M_3, M
 ### Transistor Sizing Strategy
 SRAM design requires balancing conflicting sizing priorities to prevent accidental data corruption during a read cycle, while ensuring quick data overwriting during a write cycle:
 1. **Read Stability (Cell Ratio):** The driver/pull-down transistors ($M_1, M_2$) must be stronger than the access transistors ($M_5, M_6$) to keep the internal node voltage below the inverter threshold when $WL$ is asserted.
-   $$\text{Cell Ratio (CR)} = \frac{(W/L)_{\text{driver}}}{(W/L)_{\text{access}}} > 1.2 \sim 1.5$$
+   Cell Ratio (CR) = (W/L)_{driver}/(W/L)_{access} > 1.2
 2. **Writeability (Pull-Up Ratio):** The access transistors ($M_5, M_6$) must be stronger than the pull-up PMOS transistors ($M_3, M_4$) to successfully force a new state onto the internal nodes.
-   $$\text{Pull-Up Ratio (PR)} = \frac{(W/L)_{\text{pull-up}}}{(W/L)_{\text{access}}} < 0.6 \sim 0.8$$
+   Pull-Up Ratio (PR) = (W/L)_{pull-up}{(W/L)_{access}< 0.6
 
 ### Figure of Merit (FOM) Targets
 The design was optimized to minimize the specialized joint hardware metric:
@@ -48,10 +48,4 @@ $$\text{FOM} = \text{Power} \times \text{Delay}^2 \times \text{Layout Area}$$
 
 ---
 
-## Repository Structure
-```text
-├── README.md               # Project documentation
-├── schematics/             # Component symbol and schematic capture screenshots
-├── testbenches/            # Spectre simulation configurations and stimulus scripts
-├── waveforms/              # Transient, DC sweep, and SNM Butterfly curves
-└── docs/                   # IEEE double-column conference report & summary slides
+
